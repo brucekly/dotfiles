@@ -11,6 +11,9 @@ sudo scutil --set HostName "andromeda"
 sudo scutil --set LocalHostName "andromeda"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "andromeda"
 
+# Disable "last login" message
+touch ~/.hushlogin
+
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
