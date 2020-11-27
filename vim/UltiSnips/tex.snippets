@@ -1,0 +1,201 @@
+snippet temp "template" b
+\documentclass[a4paper]{article}
+\usepackage[margin=20mm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+
+\title{$1}
+\author{${2:Bruce McPhail}}
+\date{${3}}
+
+\begin{document}
+
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet beg "environment" bA
+\\begin{$1}
+	$2
+\\end{$1}$0
+endsnippet
+
+snippet ... "dots" iA
+\dots
+endsnippet
+
+snippet tab "Table environment" bA
+\begin{table}[${1:htbp}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{$4}
+		$5
+	\end{tabular}
+\end{table}$0
+endsnippet
+
+snippet fig "Figure environment" bA
+\begin{figure}[${1:htbp}]
+	\centering
+	$2
+	\caption{$3}
+	\label{fig:$4}
+\end{figure}$0
+endsnippet
+
+snippet enum "Enumerate" bA
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize" bA
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet pac "Package" bA
+\usepackage{$1}$0
+endsnippet
+
+snippet Pac "Package with options" bA
+\usepackage[${1:options}]{${2:package}}$0
+endsnippet
+
+snippet sec "section" bA
+\section{$1}$0
+endsnippet
+
+snippet sub "subsection" bA
+\subsection{$1}$0
+endsnippet
+
+snippet ssub "subsubsection" bA
+\subsubsection{$1}$0
+endsnippet
+
+snippet im "implies"
+\implies $0
+endsnippet
+
+snippet ib "implied by"
+\impliedby $0
+endsnippet
+
+snippet ci "cite"
+\cite{$1}$0
+endsnippet
+
+snippet mk "inline maths" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "display maths" wA
+\\[
+	$1
+.\\] $0
+endsnippet
+
+snippet bf "bold" i
+\mathbf{$1}$0
+endsnippet
+
+snippet ali "align" bA
+\begin{align*}
+	${1:${VISUAL}}
+.\end{align*}
+endsnippet
+
+snippet // "fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet == "equals" iA
+&= $1 \\\\$0
+endsnippet
+
+snippet != "not equals" iA
+\neq $0
+endsnippet
+
+snippet pmat "pmat" iA
+\begin{pmatrix}
+	$1
+\end{pmatrix}$0
+endsnippet
+
+snippet bmat "bmat" iA
+\begin{bmatrix}
+	$1
+\end{bmatrix}$0
+endsnippet
+
+snippet vmat "vmat" iA
+\begin{vmatrix}
+	$1
+\end{vmatrix}$0
+endsnippet
+
+snippet sqrt "\sqrt{}" iA
+\sqrt{$1}$0
+endsnippet
+
+snippet sr "^2" i
+^2
+endsnippet
+
+snippet cb "^3" i
+^3
+endsnippet
+
+snippet ^^ "exponent" iA
+^{$1}$0
+endsnippet
+
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet int "integral" i
+\int_{${1:-\infty}}^{${2:\infty}} $0
+endsnippet
+
+snippet O "empty set" w
+\mathbb{O}
+endsnippet
+
+snippet Z "integer set" w
+\mathbb{Z}
+endsnippet
+
+snippet N "natural set" w
+\mathbb{N}
+endsnippet
+
+snippet Q "rational set" w
+\mathbb{Q}
+endsnippet
+
+snippet R "real set" w
+\mathbb{R}
+endsnippet
+
+snippet C "complex set" w
+\mathbb{C}
+endsnippet
