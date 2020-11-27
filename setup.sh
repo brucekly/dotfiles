@@ -23,4 +23,3 @@ fi
 if [ ! -f "$HOME/.gitconfig" ]; then
     mv gitconfig.local ~/.gitconfig
 fi
-ln -sf gitignore ~/.gitignore

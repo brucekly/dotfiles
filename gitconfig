@@ -1,27 +1,26 @@
 [alias]
-  	l = log --graph --pretty=format:'%C(yellow)%h %Creset%s%Cgreen [%cn] %Cred%d'
-  	s = status -sbu
-  	p = pull --recurse-submodules
-  	c = clone --recursive
-  	ca = !git add -A && git commit -av
-  	reb = "!r() { git rebase -i HEAD~$1; }; r"
-  	amend = commit --amend --reuse-message=HEAD
-  	contributors = shortlog --summary --numbered
-  	whoami = config user.email
-  	aliases = config --get-regexp alias
+  l = log --graph --pretty=format:'%C(yellow)%h %Creset%s%Cgreen [%cn] %Cred%d'
+  s = status -sbu
+  p = pull --recurse-submodules
+  c = clone --recursive
+  ca = !git add -A && git commit -av
+  reb = "!r() { git rebase -i HEAD~$1; }; r"
+  amend = commit --amend --reuse-message=HEAD
+  contributors = shortlog --summary --numbered
+  whoami = config user.email
+  aliases = config --get-regexp alias
 [apply]
-		whitespace = fix
+  whitespace = fix
 [branch]
-		sort = -committerdate
+  sort = -committerdate
 [push]
-		# suppress warning
-		default = simple
+  default = simple
 [help]
-		autocorrect = 1
+  autocorrect = 1
 [core]
-		# safely rebase on MacOS
-		trustctime = false
+  trustctime = false
+  excludesFile = ~/dotfiles/gitignore
 [init]
-		defaultBranch = main
+  defaultBranch = main
 [credential]
-		helper = osxkeychain
+  helper = osxkeychain
