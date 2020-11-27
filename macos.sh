@@ -211,7 +211,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Enable highlight hover effect for the grid view of a stack
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Set the icon size of Dock items to 36 pixels
+# Set dock size and make it immutable
+defaults write com.apple.dock size-immutable -bool true
 defaults write com.apple.dock tilesize -int 48
 
 # Change minimize/maximize window effect
