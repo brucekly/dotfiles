@@ -1,5 +1,5 @@
 [alias]
-  l = log --graph --pretty=format:'%C(yellow)%h %Creset%s%Cgreen [%cn] %Cred%d'
+  l = log --graph --pretty=format:'%C(yellow)%h%Cgreen [%cn] %Creset%s %Cred%d'
   s = status -sbu
   p = pull --recurse-submodules
   c = clone --recursive
