@@ -1,8 +1,8 @@
 set nocompatible
 
-set runtimepath^=~/Dropbox/config/vim
+set runtimepath^=~/dotfiles/vim
 
-if empty(glob('~/Dropbox/nvim/autoload/plug.vim'))
+if empty(glob('~/dotfiles/vim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
@@ -45,7 +45,7 @@ set shortmess+=c
 
 augroup autoSourceVimrc
   au!
-  au bufwritepost config.vim source ~/Dropbox/config/vim/config.vim
+  au bufwritepost config.vim source ~/dotfiles/vim/config.vim
   au bufwritepost config.vim call lightline#highlight()
 augroup END
 
@@ -80,8 +80,8 @@ endif
 let mapleader=" "
 let maplocalleader=","
 
-nnoremap <leader>ev :e ~/Dropbox/config/vim/config.vim<CR>
-nnoremap <leader>est :e ~/Dropbox/config/vim/UltiSnips/tex.snippets<CR>
+nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
+nnoremap <leader>est :e ~/dotfiles/vim/UltiSnips/tex.snippets<CR>
 
 let g:tex_flavor='latex'
 let g:tex_no_error=1
