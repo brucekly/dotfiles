@@ -40,10 +40,10 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 # Automatically quit printer app once print jobs are finished
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Disable the “Are you sure you want to open this application?” dialog
+# Disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# Remove duplicates in the “Open With” menu
+# Remove duplicates in the "Open With" menu
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 # Display ASCII control characters using caret notation in standard text views
@@ -249,31 +249,12 @@ defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 # Reset Launchpad
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
-# Don't send search queries to Apple
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-
 # Press Tab to highlight each item on a web page
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 
-# Show the full URL in the address bar
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-
-# Set Safari's home page to `about:blank`
-defaults write com.apple.Safari HomePage -string "about:blank"
-
 # Prevent Safari from opening "safe" files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-
-# Hide Safari's bookmarks bar by default
-defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-# Hide Safari's sidebar in Top Sites
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false
-
-# Disable Safari's thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 # Enable Safari's debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
@@ -303,16 +284,7 @@ defaults write com.apple.Safari AutoFillPasswords -bool false
 # Warn about fraudulent websites
 defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 
-# Disable Java
-defaults write com.apple.Safari WebKitJavaEnabled -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false
-
-# Block pop-up windows
-defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
-
-# Enable “Do Not Track”
+# Enable "Do Not Track"
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
