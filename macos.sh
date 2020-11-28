@@ -82,10 +82,9 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Enable full keyboard access
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Enable key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+# Disable key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
+defaults write NSGlobalDomain KeyRepeat -int 0
 
 # Set unit formats
 defaults write NSGlobalDomain AppleLanguages -array "en"
