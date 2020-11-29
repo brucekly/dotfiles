@@ -199,9 +199,6 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	OpenWith -bool true \
 	Privileges -bool true
 
-# Enable highlight hover effect for the grid view of a stack
-defaults write com.apple.dock mouse-over-hilite-stack -bool true
-
 # Set dock size and make it immutable
 defaults write com.apple.dock size-immutable -bool true
 defaults write com.apple.dock tilesize -int 48
