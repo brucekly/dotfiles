@@ -1,7 +1,5 @@
-set runtimepath^=~/dotfiles/vim
-
-if empty(glob('~/dotfiles/vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -95,6 +93,7 @@ let g:tex_no_error=1
 let g:vimtex_view_method='skim'
 nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 
+let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
