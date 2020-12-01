@@ -8,7 +8,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'wesgibbs/vim-irblack'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'sirver/ultisnips'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
@@ -80,21 +81,14 @@ color ir_black
 
 " Status line
 set laststatus=2
-set statusline=%<\ %f\ %m%r%y%w%=\ L:\ \%l\/\%L\ C:\ \%c\ 
+set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\ 
 
-nnoremap <C-p> :FZF<CR>
-
-if has('nvim') && !exists('g:fzf_layout')
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-endif
+nnoremap <C-p> :Files<CR>
 
 let mapleader="\<Space>"
 let maplocalleader=","
 
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
-nnoremap <leader>est :e ~/dotfiles/vim/UltiSnips/tex.snippets<CR>
 
 let g:tex_flavor='latex'
 let g:tex_no_error=1
