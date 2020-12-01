@@ -1,10 +1,7 @@
 [alias]
-  l = log --graph --pretty=format:'%C(yellow)%h%Cgreen [%cn] %Creset%s %Cred%d' --color=always
+  l = log --graph --oneline --color=always
   s = status -sbu
-  p = pull --recurse-submodules
-  c = clone --recursive
   ca = !git add -A && git commit
-  reb = "!r() { git rebase -i HEAD~$1; }; r"
   amend = commit --amend --reuse-message=HEAD
   contributors = shortlog --summary --numbered
   whoami = config user.email
