@@ -18,8 +18,21 @@ export PATH="/usr/local/sbin:$PATH"
 
 alias brew="arch -x86_64 brew"
 
-alias c="cd \$(fd -t d . ~/code -d 1 | fzf || pwd)"
-alias d="vim \$(fd . ~/dotfiles | fzf)"
+alias cdd="cd ~/dotfiles"
+
+c() {
+	local dir="$(fd -t d . ~/code -d 1 | fzf --height 6)"
+	if [ ! -z $dir ]; then
+		cd $dir
+	fi
+}
+
+d() {
+	local file="$(fd -t f . ~/dotfiles | fzf --height 6)"
+	if [ ! -z $file ]; then
+		vim $file
+	fi
+}
 
 fl() {
   git l |
