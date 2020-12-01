@@ -9,7 +9,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR=nvim
+export EDITOR=vim
 export PATH="/usr/local/sbin:$PATH"
 
 alias brew="arch -x86_64 brew"
