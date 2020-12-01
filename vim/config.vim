@@ -1,5 +1,3 @@
-set nocompatible
-
 set runtimepath^=~/dotfiles/vim
 
 if empty(glob('~/dotfiles/vim/autoload/plug.vim'))
@@ -7,67 +5,82 @@ if empty(glob('~/dotfiles/vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-call plug#begin('~/.vim-plugins')
+call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
-Plug 'itchyny/lightline.vim'
+Plug 'wesgibbs/vim-irblack'
 Plug 'junegunn/fzf'
 Plug 'sirver/ultisnips'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
-Plug 'tmsvg/pear-tree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'lervag/vimtex'
-Plug 'chrisbra/csv.vim'
 
 call plug#end()
 
-set showmatch
-set ignorecase 
-set smartcase
-set linebreak
-set nobackup
-set nowritebackup
+" Various settings
+set autoindent
+set backspace=indent,eol,start
+set complete+=d
+set foldlevelstart=999
+set foldmethod=indent
+set grepprg=LC_ALL=C\ grep\ -nrsH
+set hidden
+set incsearch
+set mouse=a
 set noswapfile
-set shortmess+=c
+set path& | let &path .= "**"
+set ruler
+set shiftround
+set shiftwidth=0
+let &softtabstop = &tabstop
+set tags=./tags;,tags;
+set wildcharm=<C-z>
+set wildmenu
+set wildmode=full
+
+" Jumps
+nnoremap ' `
+
+" Search and replace
+nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/g
+nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/g
+
+" Better completion menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap ,, <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap ,= <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+
+" Lightweight pair expansion
+inoremap (<CR> (<CR>)<Esc>O
+inoremap (;    (<CR>);<Esc>O
+inoremap (,    (<CR>),<Esc>O
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {;    {<CR>};<Esc>O
+inoremap {,    {<CR>},<Esc>O
+inoremap [<CR> [<CR>]<Esc>O
+inoremap [;    [<CR>];<Esc>O
+inoremap [,    [<CR>],<Esc>O
 
 augroup autoSourceVimrc
-  au!
-  au bufwritepost config.vim source ~/dotfiles/vim/config.vim
-  au bufwritepost config.vim call lightline#highlight()
+  autocmd!
+  autocmd bufwritepost config.vim source %
+  autocmd bufwritepost init.vim source %
+  autocmd bufwritepost .vimrc source %
 augroup END
 
-color solarized
+color ir_black
 
+" Status line
 set laststatus=2
-set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-inoremap <c-c> <ESC>
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+set statusline=%<\ %f\ %m%r%y%w%=\ L:\ \%l\/\%L\ C:\ \%c\ 
 
 nnoremap <C-p> :FZF<CR>
 
@@ -77,7 +90,7 @@ if has('nvim') && !exists('g:fzf_layout')
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 endif
 
-let mapleader=" "
+let mapleader="\<Space>"
 let maplocalleader=","
 
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
@@ -89,7 +102,7 @@ let g:vimtex_view_method='skim'
 nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 
 let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
