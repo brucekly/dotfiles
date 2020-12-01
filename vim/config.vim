@@ -5,7 +5,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'wesgibbs/vim-irblack'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sirver/ultisnips'
@@ -74,8 +73,6 @@ augroup autoSourceVimrc
   autocmd bufwritepost init.vim source %
   autocmd bufwritepost .vimrc source %
 augroup END
-
-color ir_black
 
 " Status line
 set laststatus=2
