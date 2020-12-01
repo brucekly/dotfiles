@@ -36,7 +36,7 @@ d() {
 
 fl() {
   git l |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+  fzf --ansi --no-sort --reverse --tiebreak=index \
 		--preview \
 		'grep -o "[a-f0-9]\{7,\}" <<< {} |
 		xargs git show --color=always |
