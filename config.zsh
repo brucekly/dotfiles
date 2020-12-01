@@ -9,14 +9,17 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+
 export EDITOR=vim
 export PATH="/usr/local/sbin:$PATH"
 
 alias brew="arch -x86_64 brew"
 
-alias cn="vim ~/dotfiles/vim/config.vim"
-alias cz="vim ~/dotfiles/config.zsh"
-alias cst="vim ~/dotfiles/vim/UltiSnips/tex.snippets"
+alias c="cd \$(fd -t d . ~/code -d 1 | fzf || pwd)"
+alias d="vim \$(fd . ~/dotfiles | fzf)"
 
 fl() {
   git l |
