@@ -22,6 +22,7 @@ Plug 'lervag/vimtex'
 call plug#end()
 
 " Various settings
+let &softtabstop = &tabstop
 set autoindent
 set backspace=indent,eol,start
 set complete+=d
@@ -29,6 +30,7 @@ set foldlevelstart=999
 set foldmethod=indent
 set grepprg=LC_ALL=C\ grep\ -nrsH
 set hidden
+set ignorecase
 set incsearch
 set mouse=a
 set noswapfile
@@ -36,7 +38,7 @@ set path& | let &path .= "**"
 set ruler
 set shiftround
 set shiftwidth=0
-let &softtabstop = &tabstop
+set smartcase
 set tags=./tags;,tags;
 set wildcharm=<C-z>
 set wildmenu
@@ -46,8 +48,8 @@ set wildmode=full
 nnoremap ' `
 
 " Search and replace
-nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/g
-nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/g
+nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " Better completion menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -95,4 +97,3 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
-
