@@ -1,27 +1,3 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'sirver/ultisnips'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'jpalardy/vim-slime'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'lervag/vimtex'
-
-call plug#end()
-
 " Various settings
 let &softtabstop = &tabstop
 set autoindent
@@ -45,6 +21,17 @@ set tags=./tags;,tags;
 set wildcharm=<C-z>
 set wildmenu
 set wildmode=full
+
+" Status line
+set laststatus=2
+set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\ "
+
+augroup autoSourceVimrc
+  autocmd!
+  autocmd bufwritepost config.vim source %
+  autocmd bufwritepost init.vim source %
+  autocmd bufwritepost .vimrc source %
+augroup END
 
 function! StripTrailingWhitespace()
   if !&binary && &filetype != 'diff'
@@ -78,17 +65,33 @@ inoremap [<CR> [<CR>]<Esc>O
 inoremap [;    [<CR>];<Esc>O
 inoremap [,    [<CR>],<Esc>O
 
-augroup autoSourceVimrc
-  autocmd!
-  autocmd bufwritepost config.vim source %
-  autocmd bufwritepost init.vim source %
-  autocmd bufwritepost .vimrc source %
-augroup END
+" Download vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 
-" Status line
-set laststatus=2
-set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\
+" Packages
+call plug#begin('~/.vim/plugged')
 
+Plug 'editorconfig/editorconfig-vim'
+Plug 'jpalardy/vim-slime'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'lervag/vimtex'
+Plug 'sheerun/vim-polyglot'
+Plug 'sirver/ultisnips'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+
+call plug#end()
+
+" Key bindings
 let mapleader="\<Space>"
 let maplocalleader=","
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
@@ -102,16 +105,20 @@ nnoremap <leader>i :ilist<space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<cr>
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>s :call StripTrailingWhitespace()<cr>
+nnoremap <leader>s vip:sort<cr>
+nnoremap <leader>w :call StripTrailingWhitespace()<cr>
 
+" SLIME
 let g:slime_target = "vimterminal"
 let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
 
+" VimTeX
 let g:tex_flavor='latex'
 let g:tex_no_error=1
 let g:vimtex_view_method='skim'
 nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
 
+" UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
