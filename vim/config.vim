@@ -46,19 +46,26 @@ set wildcharm=<C-z>
 set wildmenu
 set wildmode=full
 
-" Jumps
-nnoremap ' `
-
-" Search and replace
-nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
-nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+function! StripTrailingWhitespace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
 
 " Better completion menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap ,, <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
-inoremap ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
-inoremap ,= <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap <silent> ,f <C-x><C-f>
+inoremap <silent> ,i <C-x><C-i>
+inoremap <silent> ,l <C-x><C-l>
+inoremap <silent> ,n <C-x><C-n>
+inoremap <silent> ,o <C-x><C-o>
+inoremap <silent> ,t <C-x><C-]>
+inoremap <silent> ,u <C-x><C-u>
 
 " Lightweight pair expansion
 inoremap (<CR> (<CR>)<Esc>O
@@ -80,14 +87,22 @@ augroup END
 
 " Status line
 set laststatus=2
-set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\ 
-
-nnoremap <C-p> :Files<CR>
+set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\
 
 let mapleader="\<Space>"
 let maplocalleader=","
-
+nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :grep<space>
+nnoremap <leader>i :ilist<space>
+nnoremap <leader>j :tjump /
+nnoremap <leader>m :make<cr>
+nnoremap <leader>q :b#<cr>
+nnoremap <leader>s :call StripTrailingWhitespace()<cr>
 
 let g:slime_target = "vimterminal"
 let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
