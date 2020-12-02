@@ -10,6 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'sirver/ultisnips'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'jpalardy/vim-slime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -39,6 +40,7 @@ set ruler
 set shiftround
 set shiftwidth=0
 set smartcase
+set splitright
 set tags=./tags;,tags;
 set wildcharm=<C-z>
 set wildmenu
@@ -86,6 +88,9 @@ let mapleader="\<Space>"
 let maplocalleader=","
 
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
+
+let g:slime_target = "vimterminal"
+let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
 
 let g:tex_flavor='latex'
 let g:tex_no_error=1
