@@ -96,17 +96,17 @@ let mapleader="\<Space>"
 let maplocalleader=","
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
-nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
 nnoremap <leader>f :Files<CR>
-nnoremap <leader>g :grep<space>
-nnoremap <leader>i :ilist<space>
+nnoremap <leader>g :grep<Space>
+nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
-nnoremap <leader>m :make<cr>
-nnoremap <leader>q :b#<cr>
-nnoremap <leader>s vip:sort<cr>
-nnoremap <leader>w :call StripTrailingWhitespace()<cr>
+nnoremap <leader>m :make<CR>
+nnoremap <leader>q :b#<CR>
+nnoremap <leader>s vip:sort<CR>
+nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 
 " SLIME
 let g:slime_target = "vimterminal"
@@ -116,11 +116,11 @@ let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
 let g:tex_flavor='latex'
 let g:tex_no_error=1
 let g:vimtex_view_method='skim'
-nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
+nnoremap <localleader>lt :call vimtex#fzf#run()<CR>
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
