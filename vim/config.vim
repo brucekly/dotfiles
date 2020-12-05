@@ -7,6 +7,7 @@ set foldlevelstart=999
 set foldmethod=indent
 set grepprg=LC_ALL=C\ grep\ -nrsH
 set hidden
+set hlsearch
 set ignorecase
 set incsearch
 set mouse=a
@@ -109,7 +110,7 @@ nnoremap <leader>s vip:sort<CR>
 nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 
 " SLIME
-let g:slime_target = "vimterminal"
+let g:slime_target = "neovim"
 let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
 
 " VimTeX

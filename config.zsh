@@ -13,12 +13,12 @@ export FZF_DEFAULT_COMMAND="fd -t f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
-export EDITOR=vim
+export EDITOR=nvim
 export PATH="/usr/local/sbin:$PATH"
 
 alias brew="arch -x86_64 brew"
-
 alias cdd="cd ~/dotfiles"
+alias n="nvim"
 
 c() {
 	local dir="$(fd -t d . ~/code -d 1 | fzf --height 6)"
@@ -30,7 +30,7 @@ c() {
 d() {
 	local file="$(fd -t f . ~/dotfiles | fzf --height 6)"
 	if [ ! -z $file ]; then
-		vim $file
+		$EDITOR $file
 	fi
 }
 
