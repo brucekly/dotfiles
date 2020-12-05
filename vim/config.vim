@@ -95,8 +95,10 @@ call plug#end()
 " Key bindings
 let mapleader="\<Space>"
 let maplocalleader=","
+
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <leader>S vip:sort<CR>
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
@@ -106,12 +108,24 @@ nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
 nnoremap <leader>q :b#<CR>
-nnoremap <leader>s vip:sort<CR>
 nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 
 " SLIME
 let g:slime_target = "neovim"
-let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
+let g:slime_no_mappings = 1
+
+fun! StartREPL()
+  " let repl = input('exec: ')
+  execute 'vsplit term://' . input('exec: ')
+  let t:term_id = b:terminal_job_id
+  wincmd p
+  execute 'let b:slime_config = {"jobid": "'.t:term_id . '"}'
+endfun
+
+xmap <leader>s <Plug>SlimeRegionSend
+nmap <leader>s <Plug>SlimeMotionSend
+nmap <leader>ss <Plug>SlimeLineSend
+nnoremap <leader>r :call StartREPL()<CR>
 
 " VimTeX
 let g:tex_flavor='latex'
