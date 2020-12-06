@@ -79,6 +79,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jpalardy/vim-slime'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 Plug 'sirver/ultisnips'
