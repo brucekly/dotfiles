@@ -103,12 +103,12 @@ nnoremap <leader>S vip:sort<CR>
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
+nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :grep<Space>
 nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
-nnoremap <leader>q :b#<CR>
 nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 
 " SLIME
