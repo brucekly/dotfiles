@@ -76,8 +76,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jpalardy/vim-slime'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
@@ -100,10 +98,10 @@ nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>S vip:sort<CR>
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>b :b <C-d>
 nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f :find<Space>
 nnoremap <leader>g :grep<Space>
 nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
