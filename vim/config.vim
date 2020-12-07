@@ -126,7 +126,3 @@ nnoremap <localleader>lt :call vimtex#fzf#run()<CR>
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
