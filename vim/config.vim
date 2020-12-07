@@ -17,7 +17,6 @@ set ruler
 set shiftround
 set shiftwidth=0
 set smartcase
-set splitright
 set tags=./tags;,tags;
 set wildcharm=<C-z>
 set wildmenu
@@ -102,31 +101,24 @@ nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>S vip:sort<CR>
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
 nnoremap <leader>es :UltiSnipsEdit<CR>
+nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :grep<Space>
 nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
+nnoremap <leader>t :vsplit<bar>terminal<Space>
 nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 
 " SLIME
 let g:slime_target = "neovim"
 let g:slime_no_mappings = 1
-
-fun! StartREPL()
-  " let repl = input('exec: ')
-  execute 'vsplit term://' . input('exec: ')
-  let t:term_id = b:terminal_job_id
-  wincmd p
-  execute 'let b:slime_config = {"jobid": "'.t:term_id . '"}'
-endfun
+let g:slime_python_ipython = 1
 
 xmap <leader>s <Plug>SlimeRegionSend
 nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
-nnoremap <leader>r :call StartREPL()<CR>
 
 " VimTeX
 let g:tex_flavor='latex'
