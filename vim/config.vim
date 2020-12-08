@@ -87,8 +87,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
+
+set termguicolors
+color jellybeans
 
 " Key bindings
 let mapleader="\<Space>"

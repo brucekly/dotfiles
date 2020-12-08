@@ -13,6 +13,10 @@ export FZF_DEFAULT_COMMAND="fd -t f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+alias ls="ls --color=always"
+
 export EDITOR=nvim
 export PATH="/usr/local/sbin:$PATH"
 
