@@ -100,7 +100,6 @@ let maplocalleader=","
 
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
-nnoremap <leader>S vip:sort<CR>
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>es :UltiSnipsEdit<CR>
@@ -110,17 +109,13 @@ nnoremap <leader>g :grep<Space>
 nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
+nnoremap <leader>s vip:sort<CR>
 nnoremap <leader>t :vsplit<bar>terminal<Space>
 nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 
 " SLIME
 let g:slime_target = "neovim"
-let g:slime_no_mappings = 1
 let g:slime_python_ipython = 1
-
-xmap <leader>s <Plug>SlimeRegionSend
-nmap <leader>s <Plug>SlimeMotionSend
-nmap <leader>ss <Plug>SlimeLineSend
 
 " VimTeX
 let g:tex_flavor='latex'
