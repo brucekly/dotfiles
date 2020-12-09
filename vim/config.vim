@@ -65,6 +65,14 @@ inoremap [<CR> [<CR>]<Esc>O
 inoremap [;    [<CR>];<Esc>O
 inoremap [,    [<CR>],<Esc>O
 
+" Terminal colours
+let g:terminal_color_1 = '#cf6a4c'
+let g:terminal_color_2 = '#99ad6a'
+let g:terminal_color_3 = '#d8ad4c'
+let g:terminal_color_4 = '#597bc5'
+let g:terminal_color_5 = '#a037b0'
+let g:terminal_color_6 = '#71b9f8'
+
 " Download vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
