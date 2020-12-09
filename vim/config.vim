@@ -86,6 +86,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jpalardy/vim-slime'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
@@ -95,7 +97,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
 
