@@ -114,7 +114,7 @@ nnoremap <leader>b :b <C-d>
 nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
 nnoremap <leader>f :find<Space>
-nnoremap <leader>g :grep<Space>
+nnoremap <leader>g :G<CR>
 nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
