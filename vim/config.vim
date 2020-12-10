@@ -111,9 +111,10 @@ nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
 nnoremap <leader>b :b <C-d>
+nnoremap <leader>ee :edit<Space>
 nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
-nnoremap <leader>f :find<Space>
+nnoremap <leader>f :find<Space>*
 nnoremap <leader>g :G<CR>
 nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
