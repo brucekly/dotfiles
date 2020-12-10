@@ -116,7 +116,12 @@ nnoremap <leader>ee :edit<Space>
 nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
 nnoremap <leader>f :find<Space>*
-nnoremap <leader>g :G<CR>
+nnoremap <leader>gb :G blame<CR>
+nnoremap <leader>gd :Gdiffsplit<CR>
+nnoremap <leader>gf :G fetch<CR>
+nnoremap <leader>gg :G<CR>
+nnoremap <leader>gl :G log<CR>
+nnoremap <leader>gp :G push<CR>
 nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
