@@ -19,6 +19,7 @@ set shiftwidth=0
 set smartcase
 set tags=./tags;,tags;
 set wildcharm=<C-z>
+set wildignorecase
 set wildmenu
 set wildmode=full
 
