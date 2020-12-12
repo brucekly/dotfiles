@@ -7,6 +7,13 @@ plugins=(
 	virtualenv
 )
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 export FZF_DEFAULT_COMMAND="fd -t f"
