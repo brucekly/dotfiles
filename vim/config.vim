@@ -66,8 +66,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'jpalardy/vim-slime'
 Plug 'justinmk/vim-sneak'
+Plug 'kassio/neoterm'
 Plug 'lervag/vimtex'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nanotech/jellybeans.vim'
@@ -109,12 +109,21 @@ nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
 nnoremap <leader>s vip:sort<CR>
-nnoremap <leader>t :vsplit<bar>terminal<Space>
+nnoremap <leader>tc :Tclose<Space>
+nnoremap <leader>tl :Tclear<CR>
+nnoremap <leader>tn :Tnew<CR>
+nnoremap <leader>tt :T<Space>
 nnoremap <leader>w :call StripTrailingWhitespace()<CR>
+nnoremap <silent><leader>R :TREPLSendFile<CR>
+nnoremap <silent><leader>r :TREPLSendLine<CR>j
+vnoremap <silent><leader>r :TREPLSendSelection<cr>'>j
 
-" SLIME
-let g:slime_target = "neovim"
-let g:slime_python_ipython = 1
+" Neoterm
+let g:neoterm_autoscroll = 1
+let g:neoterm_direct_open_repl = 1
+let g:neoterm_default_mod = 'vertical'
+let g:neoterm_bracketed_paste = 1
+let g:neoterm_repl_enable_ipython_paste_magic = 1
 
 " VimTeX
 let g:tex_flavor='latex'
