@@ -1,24 +1,27 @@
 snippet temp "template" b
-\documentclass[a4paper]{article}
-\usepackage[margin=20mm]{geometry}
+\\documentclass[a4paper]{article}
+\\usepackage[margin=20mm]{geometry}
 
-\usepackage[T1]{fontenc}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-\usepackage{microtype}
+\\usepackage[T1]{fontenc}
+\\usepackage{mathtools}
+\\usepackage{amssymb}
+\\usepackage{amsthm}
+\\usepackage{amsfonts}
+\\usepackage{microtype}
+\\usepackage{lmodern}
+\\usepackage{inconsolata}
+\\usepackage{hyperref}
 
-\title{$1}
-\author{${2:Bruce McPhail}}
+\\title{$1}
+\\author{${2:Bruce McPhail}}
 
-\begin{document}
+\\begin{document}
 
-\maketitle
+\\maketitle
 
 $0
 
-\end{document}
+\\end{document}
 endsnippet
 
 snippet beg "environment" b
@@ -28,87 +31,87 @@ snippet beg "environment" b
 endsnippet
 
 snippet ... "dots" iA
-\dots
+\\dots
 endsnippet
 
 snippet tab "Table environment" b
-\begin{table}[${1:htbp}]
-	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{tabular}{$4}
+\\begin{table}[${1:htbp}]
+	\\centering
+	\\caption{${2:caption}}
+	\\label{tab:${3:label}}
+	\\begin{tabular}{$4}
 		$5
-	\end{tabular}
-\end{table}
+	\\end{tabular}
+\\end{table}
 endsnippet
 
 snippet fig "Figure environment" b
-\begin{figure}[${1:htbp}]
-	\centering
+\\begin{figure}[${1:htbp}]
+	\\centering
 	$2
-	\caption{$3}
-	\label{fig:$4}
-\end{figure}
+	\\caption{$3}
+	\\label{fig:$4}
+\\end{figure}
 endsnippet
 
 snippet enum "Enumerate" b
-\begin{enumerate}
-	\item $0
-\end{enumerate}
+\\begin{enumerate}
+	\\item $0
+\\end{enumerate}
 endsnippet
 
 snippet item "Itemize" b
-\begin{itemize}
-	\item $0
-\end{itemize}
+\\begin{itemize}
+	\\item $0
+\\end{itemize}
 endsnippet
 
 snippet pac "Package" b
-\usepackage{$1}
+\\usepackage{$1}
 endsnippet
 
 snippet Pac "Package with options" b
-\usepackage[${1:options}]{${2:package}}
+\\usepackage[${1:options}]{${2:package}}
 endsnippet
 
 snippet cha "chapter" b
-\chapter{$1}%
-\label{cha:${2:$1}}
+\\chapter{$1}%
+\\label{cha:${2:$1}}
 $0
 endsnippet
 
 snippet sec "section" b
-\section{$1}%
-\label{sec:${2:$1}}
+\\section{$1}%
+\\label{sec:${2:$1}}
 $0
 endsnippet
 
 snippet sub "subsection" b
-\subsection{$1}%
-\label{sub:${2:$1}}
+\\subsection{$1}%
+\\label{sub:${2:$1}}
 $0
 endsnippet
 
 snippet ssub "subsubsection" b
-\subsubsection{$1}%
-\label{ssub:${2:$1}}
+\\subsubsection{$1}%
+\\label{ssub:${2:$1}}
 $0
 endsnippet
 
 snippet im "implies"
-\implies $0
+\\implies $0
 endsnippet
 
 snippet ib "implied by"
-\impliedby $0
+\\impliedby $0
 endsnippet
 
 snippet ci "cite"
-\autocite{$1}
+\\autocite{$1}
 endsnippet
 
 snippet mk "inline maths" wA
-$${1}$`!p
+\\(${1}\\)`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 	snip.rv = ' '
 else:
@@ -119,25 +122,29 @@ endsnippet
 snippet dm "display maths" wA
 \\[
 	$1
-.\\]
+\\]
+endsnippet
+
+snippet tx "text" i
+\\text{$1}
 endsnippet
 
 snippet bf "bold" i
-\mathbf{$1}
+\\mathbf{$1}
 endsnippet
 
 snippet bb "blackboard bold" i
-\mathbb{$1}
+\\mathbb{$1}
 endsnippet
 
 snippet ali "align" b
-\begin{align}
+\\begin{align}
 	$1
-.\end{align}
+\\end{align}
 endsnippet
 
 snippet // "fraction" iA
-\frac{$1}{$2}
+\\frac{$1}{$2}
 endsnippet
 
 snippet == "equals" iA
@@ -145,17 +152,17 @@ snippet == "equals" iA
 endsnippet
 
 snippet != "not equals" iA
-\neq $0
+\\neq $0
 endsnippet
 
-snippet mat "matrix"
-\begin{$1matrix}
+snippet mat "matrix" i
+\\begin{${1:b}matrix}
 	$2
-\end{$1matrix}
+\\end{$1matrix}
 endsnippet
 
-snippet sqrt "\sqrt{}"
-\sqrt{$1}
+snippet sqrt "\sqrt{}" i
+\\sqrt{$1}
 endsnippet
 
 snippet sr "^2" i
@@ -174,71 +181,72 @@ snippet __ "subscript" iA
 _{$1}
 endsnippet
 
-snippet int "integral"
-\int_{${1:-\infty}}^{${2:\infty}} $0
+snippet int "integral" i
+\\int_{${1:-\\infty}}^{${2:\\infty}} $0
 endsnippet
 
-snippet sum "sum"
-\sum_{${1:n=0}}^{${2:\infty}} $0
+snippet sum "sum" i
+\\sum_{${1:n=0}}^{${2:\\infty}} $0
 endsnippet
 
-snippet lim "limit"
-\lim_{${1:n}}\to ${2:\infty}} $0
-
-snippet O "empty set"
-\mathbb{O}
+snippet lim "limit" i
+\\lim_{${1:n}}\\to ${2:\\infty}} $0
 endsnippet
 
-snippet Z "integer set"
-\mathbb{Z}
+snippet e "empty set" i
+\\emptyset
 endsnippet
 
-snippet N "natural set"
-\mathbb{N}
+snippet i "integer set" i
+\\mathbb{Z}
 endsnippet
 
-snippet Q "rational set"
-\mathbb{Q}
+snippet n "natural set" i
+\\mathbb{N}
 endsnippet
 
-snippet R "real set"
-\mathbb{R}
+snippet q "rational set" i
+\\mathbb{Q}
 endsnippet
 
-snippet C "complex set"
-\mathbb{C}
+snippet r "real set" i
+\\mathbb{R}
+endsnippet
+
+snippet c "complex set" i
+\\mathbb{C}
 endsnippet
 
 snippet cases "cases"
-\begin{cases}
-	$1 &\text{ if }$2 \\\\
-\end{cases}
+\\begin{cases}
+	$1 &\\text{ if }$2 \\\\
+\\end{cases}
 endsnippet
 
-snippet lr "left right"
-\left$1$2\right$1
+snippet lr "left right" i
+\\left$1$2\\right$1
 endsnippet
 
-snippet lr( "left( right)"
-\left($1\right)
+snippet lr( "left( right)" i
+\\left($1\\right)
 endsnippet
 
-snippet lr[ "left[ right]"
-\left[$1\right]
+snippet lr[ "left[ right]" i
+\\left[$1\\right]
 endsnippet
 
-snippet lr{ "left\{ right\}"
-\left\\{$1\right\\}
+snippet lr{ "left\{ right\}" i
+\\left\\{$1\\right\\}
 endsnippet
 
-snippet lrv "left| right|"
-\lvert$1\rvert
+snippet lrv "left| right|" i
+\\lvert$1\\rvert
 endsnippet
 
-snippet lrV "left|| right||"
-\lVert$1\rVert
+snippet lrV "left|| right||" i
+\\lVert$1\\rVert
 endsnippet
 
-snippet . "dot"
-\cdot $0
+snippet . "dot" i
+\\cdot $0
 endsnippet
