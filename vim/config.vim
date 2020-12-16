@@ -122,7 +122,6 @@ vnoremap <silent><leader>r :TREPLSendSelection<cr>'>j
 let g:neoterm_autoscroll = 1
 let g:neoterm_direct_open_repl = 1
 let g:neoterm_default_mod = 'vertical'
-let g:neoterm_bracketed_paste = 1
 let g:neoterm_repl_enable_ipython_paste_magic = 1
 
 " VimTeX
