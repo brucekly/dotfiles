@@ -47,13 +47,6 @@ endfunction
 " Better completion menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent> ,f <C-x><C-f>
-inoremap <silent> ,i <C-x><C-i>
-inoremap <silent> ,l <C-x><C-l>
-inoremap <silent> ,n <C-x><C-n>
-inoremap <silent> ,o <C-x><C-o>
-inoremap <silent> ,t <C-x><C-]>
-inoremap <silent> ,u <C-x><C-u>
 
 " Terminal colours
 let g:terminal_color_1 = '#cf6a4c'
