@@ -73,6 +73,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'sirver/ultisnips'
+Plug 'skywind3000/asyncrun.vim'
 Plug 'tmsvg/pear-tree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -117,6 +118,9 @@ nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 nnoremap <silent><leader>R :TREPLSendFile<CR>
 nnoremap <silent><leader>r :TREPLSendLine<CR>j
 vnoremap <silent><leader>r :TREPLSendSelection<cr>'>j
+
+" Asyncrun
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
 " Neoterm
 let g:neoterm_autoscroll = 1
