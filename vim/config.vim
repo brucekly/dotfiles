@@ -44,10 +44,6 @@ function! StripTrailingWhitespace()
   endif
 endfunction
 
-" Better completion menu
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Terminal colours
 let g:terminal_color_1 = '#cf6a4c'
 let g:terminal_color_2 = '#99ad6a'
@@ -65,12 +61,14 @@ endif
 " Packages
 call plug#begin('~/.vim/plugged')
 
+Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'kassio/neoterm'
 Plug 'lervag/vimtex'
+Plug 'lifepillar/vim-mucomplete'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-polyglot'
@@ -97,10 +95,9 @@ nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
 nnoremap <leader>b :b <C-d>
-nnoremap <leader>ee :edit<Space>
 nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
-nnoremap <leader>f :find<Space>*
+nnoremap <leader>f :e<Space>
 nnoremap <leader>gb :G blame<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
 nnoremap <leader>gf :G fetch<CR>
@@ -123,6 +120,11 @@ vnoremap <silent><leader>r :TREPLSendSelection<cr>'>j
 " FZF
 nnoremap <C-p> :Files<CR>
 
+" MUcomplete
+set completeopt+=longest,menuone,noinsert
+set completeopt-=preview
+let g:mucomplete#enable_auto_at_startup = 1
+
 " Neoterm
 let g:neoterm_autoscroll = 1
 let g:neoterm_direct_open_repl = 1
@@ -137,3 +139,7 @@ nnoremap <localleader>lt :call vimtex#fzf#run()<CR>
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
+let g:UltiSnipsExpandTrigger="<C-f>"
+let g:UltiSnipsJumpForwardTrigger="<C-f>"
+let g:UltiSnipsJumpBackwardTrigger="<C-d>"
+let g:UltiSnipsEditSplit="vertical"
