@@ -123,7 +123,6 @@ nnoremap <C-p> :Files<CR>
 " MUcomplete
 set completeopt+=longest,menuone,noinsert
 set completeopt-=preview
-let g:mucomplete#enable_auto_at_startup = 1
 
 " Neoterm
 let g:neoterm_autoscroll = 1
