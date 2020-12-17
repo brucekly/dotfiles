@@ -37,8 +37,8 @@ endsnippet
 snippet tab "Table environment" b
 \\begin{table}[${1:htbp}]
 	\\centering
-	\\caption{${2:caption}}
-	\\label{tab:${3:label}}
+	\\caption{$2}
+	\\label{tab:$3}
 	\\begin{tabular}{$4}
 		$5
 	\\end{tabular}
@@ -70,31 +70,27 @@ snippet pac "Package" b
 \\usepackage{$1}
 endsnippet
 
-snippet Pac "Package with options" b
+snippet paco "Package with options" b
 \\usepackage[${1:options}]{${2:package}}
 endsnippet
 
 snippet cha "chapter" b
-\\chapter{$1}%
-\\label{cha:${2:$1}}
+\\chapter{$1} \\label{cha:${1/\s*(\w+)\s*/\L$1\E/g}}
 $0
 endsnippet
 
 snippet sec "section" b
-\\section{$1}%
-\\label{sec:${2:$1}}
+\\section{$1} \\label{sec:${1/\s*(\w+)\s*/\L$1\E/g}}
 $0
 endsnippet
 
 snippet sub "subsection" b
-\\subsection{$1}%
-\\label{sub:${2:$1}}
+\\subsection{$1} \\label{sub:${1/\s*(\w+)\s*/\L$1\E/g}}
 $0
 endsnippet
 
 snippet ssub "subsubsection" b
-\\subsubsection{$1}%
-\\label{ssub:${2:$1}}
+\\subsubsection{$1} \\label{ssub:${1/\s*(\w+)\s*/\L$1\E/g}}
 $0
 endsnippet
 
@@ -108,6 +104,10 @@ endsnippet
 
 snippet ci "cite"
 \\autocite{$1}
+endsnippet
+
+snippet cio "cite with options"
+\\autocite[$1]{$2}
 endsnippet
 
 snippet mk "inline maths" wA
@@ -193,33 +193,33 @@ snippet lim "limit" i
 \\lim_{${1:n}}\\to ${2:\\infty}} $0
 endsnippet
 
-snippet e "empty set" i
+snippet E "empty set" i
 \\emptyset
 endsnippet
 
-snippet i "integer set" i
+snippet I "integer set" i
 \\mathbb{Z}
 endsnippet
 
-snippet n "natural set" i
+snippet N "natural set" i
 \\mathbb{N}
 endsnippet
 
-snippet q "rational set" i
+snippet Q "rational set" i
 \\mathbb{Q}
 endsnippet
 
-snippet r "real set" i
+snippet R "real set" i
 \\mathbb{R}
 endsnippet
 
-snippet c "complex set" i
+snippet C "complex set" i
 \\mathbb{C}
 endsnippet
 
 snippet cases "cases"
 \\begin{cases}
-	$1 &\\text{ if }$2 \\\\
+	$1 & \\text{if}$2 \\\\
 \\end{cases}
 endsnippet
 
