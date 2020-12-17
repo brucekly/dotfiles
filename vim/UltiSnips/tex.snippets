@@ -1,16 +1,36 @@
 snippet temp "template" b
-\\documentclass[a4paper]{article}
+\\documentclass{article}
 
-\\usepackage[T1]{fontenc}
+\\usepackage{fouriernc}
+\\usepackage{inconsolata}
 \\usepackage{mathtools}
 \\usepackage{amssymb}
+\\usepackage[T1]{fontenc}
+\\usepackage{microtype}
+
+\\usepackage[margin=2.5cm,a4paper]{geometry}
+\\usepackage{multicol}
+\\usepackage{multirow}
+
+\\usepackage[british]{babel}
+\\usepackage{csquotes}
+
+\\usepackage{graphicx}
+\\usepackage{tikz,tikz-3dplot}
+\\usepackage{caption}
+\\usepackage{tabularx}
+\\usepackage{booktabs}
+
 \\usepackage{amsthm}
 \\usepackage{amsfonts}
-\\usepackage{microtype}
-\\usepackage{lmodern}
-\\usepackage{inconsolata}
-\\usepackage{hyperref}
+\\usepackage{nicematrix}
+\\usepackage{siunitx}
+
+\\usepackage[hidelinks]{hyperref}
 \\usepackage{cleveref}
+\\usepackage{biblatex}
+
+\\usetikzlibrary{calc, arrows, positioning}
 
 \\title{$1}
 \\author{${2:Bruce McPhail}}
@@ -118,6 +138,10 @@ snippet rer "cross-reference range"
 \\crefrange{$1}{$2}
 endsnippet
 
+snippet si "SI unit"
+\\SI{$1}{$2}
+endsnippet
+
 snippet mk "inline maths" wA
 \\(${1}\\)`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
@@ -160,13 +184,29 @@ snippet == "equals" iA
 endsnippet
 
 snippet != "not equals" iA
-\\neq $0
+\\neq
 endsnippet
 
 snippet mat "matrix" i
-\\begin{${1:b}matrix}
+\\begin{${1:b}NiceMatrix}[light-syntax]
 	$2
-\\end{$1matrix}
+\\end{$1NiceMatrix}
+endsnippet
+
+snippet ldot "ldots"
+{\\Ldots}
+endsnippet
+
+snippet cdot "cdots"
+{\\Cdots}
+endsnippet
+
+snippet vdot "vdots"
+{\\Vdots}
+endsnippet
+
+snippet ddot "ddots"
+{\\Ddots}
 endsnippet
 
 snippet sqrt "\sqrt{}" i
