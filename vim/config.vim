@@ -66,6 +66,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'kassio/neoterm'
 Plug 'lervag/vimtex'
@@ -117,6 +119,9 @@ nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 nnoremap <silent><leader>R :TREPLSendFile<CR>
 nnoremap <silent><leader>r :TREPLSendLine<CR>j
 vnoremap <silent><leader>r :TREPLSendSelection<cr>'>j
+
+" FZF
+nnoremap <C-p> :Files<CR>
 
 " Neoterm
 let g:neoterm_autoscroll = 1
