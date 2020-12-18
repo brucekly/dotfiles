@@ -10,6 +10,8 @@ set hidden
 set hlsearch
 set ignorecase
 set incsearch
+set list
+set listchars=trail:-
 set mouse=a
 set noswapfile
 set path& | let &path .= "**"
