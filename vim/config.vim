@@ -142,4 +142,3 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
 let g:UltiSnipsExpandTrigger="<C-f>"
 let g:UltiSnipsJumpForwardTrigger="<C-f>"
 let g:UltiSnipsJumpBackwardTrigger="<C-d>"
-let g:UltiSnipsEditSplit="vertical"
