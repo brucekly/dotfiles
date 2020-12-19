@@ -24,7 +24,6 @@ snippet temp "template" b
 
 \\usepackage{amsthm}
 \\usepackage{amsfonts}
-\\usepackage{nicematrix}
 \\usepackage{siunitx}
 
 \\usepackage[hidelinks]{hyperref}
@@ -33,8 +32,9 @@ snippet temp "template" b
 
 \\pagestyle{fancy}
 
-\\title{$1}
+\\title{${1:Title}}
 \\author{${2:Bruce McPhail}}
+\\date{$3}
 
 \\begin{document}
 
@@ -189,9 +189,9 @@ snippet != "not equals" iA
 endsnippet
 
 snippet mat "matrix" i
-\\begin{${1:b}NiceMatrix}[light-syntax]
+\\begin{${1:b}matrix}
 	$2
-\\end{$1NiceMatrix}
+\\end{$1matrix}
 endsnippet
 
 snippet ldot "ldots"
