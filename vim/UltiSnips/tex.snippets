@@ -1,37 +1,22 @@
 snippet temp "template" b
 \\documentclass{article}
+\\usepackage[margin=2.5cm,a4paper]{geometry}
 
 \\usepackage{lmodern}
 \\usepackage{inconsolata}
-\\usepackage{mathtools}
-\\usepackage{amssymb}
-\\usepackage[T1]{fontenc}
 \\usepackage{microtype}
-
-\\usepackage[margin=2.5cm,a4paper]{geometry}
-\\usepackage{multicol}
-\\usepackage{multirow}
 
 \\usepackage[british]{babel}
 \\usepackage{csquotes}
 
-\\usepackage{fancyhdr}
-\\usepackage{graphicx}
-\\usepackage{caption}
-\\usepackage{tabularx}
-\\usepackage{booktabs}
-\\usepackage{contour}
-
-\\usepackage{amsthm}
+\\usepackage{mathtools}
+\\usepackage{amssymb}
 \\usepackage{amsfonts}
+\\usepackage{amsthm}
 \\usepackage{siunitx}
 
-\\usepackage[hidelinks]{hyperref}
+\\usepackage{hyperref}
 \\usepackage{cleveref}
-\\usepackage{biblatex}
-
-\\bibliography{bibliography}
-\\pagestyle{fancy}
 
 \\title{${1:Title}}
 \\author{${2:Bruce McPhail}}
@@ -98,49 +83,55 @@ endsnippet
 
 snippet cha "chapter" b
 \\chapter{$1} \\label{cha:${1/\s*(\w+)\s*/\L$1\E/g}}
-$0
 endsnippet
 
 snippet sec "section" b
 \\section{$1} \\label{sec:${1/\s*(\w+)\s*/\L$1\E/g}}
-$0
 endsnippet
 
 snippet sub "subsection" b
 \\subsection{$1} \\label{sub:${1/\s*(\w+)\s*/\L$1\E/g}}
-$0
 endsnippet
 
 snippet ssub "subsubsection" b
 \\subsubsection{$1} \\label{ssub:${1/\s*(\w+)\s*/\L$1\E/g}}
-$0
 endsnippet
 
-snippet im "implies"
+snippet quo "quote"
+\\enquote{$1}
+endsnippet
+
+snippet dquo "display quote" b
+\\begin{displayquote}
+	$1
+\\end{displayquote}
+endsnippet
+
+snippet im "implies" i
 \\implies $0
 endsnippet
 
-snippet ib "implied by"
+snippet ib "implied by" i
 \\impliedby $0
 endsnippet
 
-snippet ci "cite"
+snippet ci "cite" i
 \\autocite{$1}
 endsnippet
 
-snippet cio "cite with options"
+snippet cio "cite with options" i
 \\autocite[$1]{$2}
 endsnippet
 
-snippet re "cross-reference"
+snippet re "cross-reference" i
 \\cref{$1}
 endsnippet
 
-snippet rer "cross-reference range"
+snippet rer "cross-reference range" i
 \\crefrange{$1}{$2}
 endsnippet
 
-snippet si "SI unit"
+snippet si "SI unit" i
 \\SI{$1}{$2}
 endsnippet
 
