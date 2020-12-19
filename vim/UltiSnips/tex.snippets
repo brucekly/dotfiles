@@ -2,21 +2,23 @@ snippet temp "template" b
 \\documentclass{article}
 \\usepackage[margin=2.5cm,a4paper]{geometry}
 
-\\usepackage{lmodern}
-\\usepackage{inconsolata}
-\\usepackage{microtype}
-
+\\usepackage{mathtools, amssymb, amsfonts, amsthm}
 \\usepackage[british]{babel}
 \\usepackage{csquotes}
-
-\\usepackage{mathtools}
-\\usepackage{amssymb}
-\\usepackage{amsfonts}
-\\usepackage{amsthm}
 \\usepackage{siunitx}
-
 \\usepackage{hyperref}
 \\usepackage{cleveref}
+
+\\theoremstyle{plain}
+\\newtheorem{thm}{Theorem}[section]
+\\newtheorem{prop}[thm]{Proposition}
+\\newtheorem{lem}[thm]{Lemma}
+\\newtheorem{cor}{Corollary}[thm]
+\\theoremstyle{definition}
+\\newtheorem{defn}{Definition}[section]
+\\newtheorem{axi}{Axiom}[section]
+\\theoremstyle{remark}
+\\newtheorem*{rem}{Remark}
 
 \\title{${1:Title}}
 \\author{${2:Bruce McPhail}}
@@ -113,6 +115,54 @@ endsnippet
 
 snippet ib "implied by" i
 \\impliedby $0
+endsnippet
+
+snippet thm "theorem"
+\\begin{thm}
+	\\label{thm:$1}
+	$2
+\\end{thm}
+endsnippet
+
+snippet prop "proposition"
+\\begin{prop}
+	\\label{prop:$1}
+	$2
+\\end{prop}
+endsnippet
+
+snippet lem "lemma"
+\\begin{lem}
+	\\label{lem:$1}
+	$2
+\\end{lem}
+endsnippet
+
+snippet cor "corollary"
+\\begin{cor}
+	\\label{cor:$1}
+	$2
+\\end{cor}
+endsnippet
+
+snippet def "definition"
+\\begin{defn}
+	\\label{defn:$1}
+	$2
+\\end{defn}
+endsnippet
+
+snippet axi "axiom"
+\\begin{axi}
+	\\label{axi:$1}
+	$2
+\\end{axi}
+endsnippet
+
+snippet rem "remark"
+\\begin{rem}
+	$2
+\\end{rem}
 endsnippet
 
 snippet ci "cite" i
