@@ -122,8 +122,9 @@ vnoremap <silent><leader>r :TREPLSendSelection<cr>'>j
 nnoremap <C-p> :Files<CR>
 
 " MUcomplete
-set completeopt+=longest,menuone,noinsert
 set completeopt-=preview
+set completeopt+=menuone,noselect
+let g:mucomplete#enable_auto_at_startup = 1
 
 " Neoterm
 let g:neoterm_autoscroll = 1
