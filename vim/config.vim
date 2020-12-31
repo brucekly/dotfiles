@@ -45,14 +45,6 @@ function! StripTrailingWhitespace()
   endif
 endfunction
 
-" Terminal colours
-let g:terminal_color_1 = '#cf6a4c'
-let g:terminal_color_2 = '#99ad6a'
-let g:terminal_color_3 = '#d8ad4c'
-let g:terminal_color_4 = '#597bc5'
-let g:terminal_color_5 = '#a037b0'
-let g:terminal_color_6 = '#71b9f8'
-
 " Download vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -62,6 +54,7 @@ endif
 " Packages
 call plug#begin('~/.vim/plugged')
 
+Plug 'cocopon/iceberg.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -71,7 +64,6 @@ Plug 'kassio/neoterm'
 Plug 'lervag/vimtex'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'sirver/ultisnips'
 Plug 'tmsvg/pear-tree'
@@ -86,7 +78,7 @@ Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 set termguicolors
-color jellybeans
+color iceberg
 
 " Key bindings
 let mapleader="\<Space>"
