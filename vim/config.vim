@@ -59,27 +59,17 @@ function! StripTrailingWhitespace()
   endif
 endfunction
 
-" Download vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-" Packages
 call plug#begin('~/.vim/plugged')
 
+" Aesthetic
 Plug 'cocopon/iceberg.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'jpalardy/vim-slime'
-Plug 'justinmk/vim-sneak'
-Plug 'lervag/vimtex'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'sheerun/vim-polyglot'
-Plug 'sirver/ultisnips'
-Plug 'tmsvg/pear-tree'
+
+" Editing
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -87,6 +77,21 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'justinmk/vim-sneak'
+
+" Code
+Plug 'sheerun/vim-polyglot'
+Plug 'tmsvg/pear-tree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'jpalardy/vim-slime'
+Plug 'sirver/ultisnips'
+
+" Languages
+Plug 'davidhalter/jedi-vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -134,7 +139,6 @@ let g:slime_python_ipython = 1
 let g:tex_flavor='latex'
 let g:tex_no_error=1
 let g:vimtex_view_method='skim'
-nnoremap <localleader>lt :call vimtex#fzf#run()<CR>
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
