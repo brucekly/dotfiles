@@ -28,6 +28,20 @@ set wildmode=full
 set laststatus=2
 set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\ "
 
+" Window movement
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
 augroup autoSourceVimrc
   autocmd!
   autocmd bufwritepost config.vim source %
@@ -55,10 +69,9 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'cocopon/iceberg.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'jpalardy/vim-slime'
 Plug 'justinmk/vim-sneak'
 Plug 'lervag/vimtex'
@@ -92,7 +105,7 @@ nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
 nnoremap <leader>f :e<Space>
 nnoremap <leader>gb :G blame<CR>
-nnoremap <leader>gd :Gdiffsplit<CR>
+nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap <leader>gf :G fetch<CR>
 nnoremap <leader>gg :G<CR>
 nnoremap <leader>gl :G log<CR>
@@ -101,11 +114,11 @@ nnoremap <leader>i :ilist<Space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<CR>
 nnoremap <leader>s vip:sort<CR>
-nnoremap <leader>t :vsplit<bar>terminal<Space>
+nnoremap <leader>t :vsplit <bar> terminal<Space>
 nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 
 " FZF
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :CtrlP<CR>
 
 " MUcomplete
 set completeopt-=preview
@@ -113,6 +126,7 @@ set completeopt+=menuone,noselect
 let g:mucomplete#enable_auto_at_startup = 1
 
 " SLIME
+tnoremap <Esc> <C-\><C-n>
 let g:slime_target = "neovim"
 let g:slime_python_ipython = 1
 
