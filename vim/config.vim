@@ -85,7 +85,6 @@ Plug 'tmsvg/pear-tree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'lifepillar/vim-mucomplete'
 Plug 'jpalardy/vim-slime'
 Plug 'sirver/ultisnips'
 
@@ -125,11 +124,6 @@ nnoremap <leader>w :call StripTrailingWhitespace()<CR>
 " FZF
 nnoremap <C-p> :CtrlP<CR>
 
-" MUcomplete
-set completeopt-=preview
-set completeopt+=menuone,noselect
-let g:mucomplete#enable_auto_at_startup = 1
-
 " SLIME
 tnoremap <Esc> <C-\><C-n>
 let g:slime_target = "neovim"
@@ -142,6 +136,3 @@ let g:vimtex_view_method='skim'
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/UltiSnips']
-let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsJumpForwardTrigger="<C-f>"
-let g:UltiSnipsJumpBackwardTrigger="<C-d>"
