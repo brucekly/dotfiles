@@ -16,7 +16,7 @@ snippet temp "template" b
 \\newtheorem{lem}[thm]{Lemma}
 \\newtheorem{cor}{Corollary}[thm]
 \\theoremstyle{definition}
-\\newtheorem{def}{Definition}[section]
+\\newtheorem{defn}{Definition}[section]
 \\newtheorem{axi}{Axiom}[section]
 \\theoremstyle{remark}
 \\newtheorem*{rem}{Remark}
@@ -143,10 +143,10 @@ snippet cor "corollary"
 endsnippet
 
 snippet def "definition"
-\\begin{def}
+\\begin{defn}
 	\\label{defn:$1}
 	$2
-\\end{def}
+\\end{defn}
 endsnippet
 
 snippet axi "axiom"
