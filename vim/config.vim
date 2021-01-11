@@ -104,7 +104,7 @@ let maplocalleader=","
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>a :argadd <C-r>=fnameescape(expand('%:p:h'))<CR>/*<C-d>
-nnoremap <leader>b :b <C-d>
+nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>es :UltiSnipsEdit<CR>
 nnoremap <leader>ev :e ~/dotfiles/vim/config.vim<CR>
 nnoremap <leader>f :e<Space>
