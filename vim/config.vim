@@ -10,6 +10,7 @@ set hidden
 set hlsearch
 set ignorecase
 set incsearch
+set lazyredraw
 set list
 set mouse=a
 set noswapfile
