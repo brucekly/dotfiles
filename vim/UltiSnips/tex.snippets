@@ -2,12 +2,16 @@ snippet temp "template" b
 \\documentclass{article}
 
 \\usepackage{mathtools,amssymb,amsthm}
+\\usepackage[T1]{fontenc}
 \\usepackage[british]{babel}
-\\usepackage{lmodern}
+\\usepackage[sups,osf]{XCharter}
+\\usepackage[charter,vvarbb]{newtxmath}
 \\usepackage{inconsolata}
+\\usepackage{cabin}
+\\usepackage[a4paper,textwidth=26pc]{geometry}
 \\usepackage{microtype}
 \\usepackage{csquotes}
-\\usepackage{hyperref}
+\\usepackage[colorlinks=true]{hyperref}
 \\usepackage{cleveref}
 
 \\theoremstyle{plain}
@@ -215,8 +219,16 @@ snippet ali "align" b
 \\end{align}
 endsnippet
 
-snippet frac "fraction" i
+snippet fr "fraction" i
 \\frac{$1}{$2}
+endsnippet
+
+snippet ddx "derivative" i
+\\frac{d}{dx}
+endsnippet
+
+snippet dydx "dy/dx" i
+\\frac{dy}{dx}
 endsnippet
 
 snippet mat "matrix" i
@@ -226,22 +238,22 @@ snippet mat "matrix" i
 endsnippet
 
 snippet ldot "ldots"
-{\\Ldots}
+{\\ldots}
 endsnippet
 
 snippet cdot "cdots"
-{\\Cdots}
+{\\cdots}
 endsnippet
 
 snippet vdot "vdots"
-{\\Vdots}
+{\\vdots}
 endsnippet
 
 snippet ddot "ddots"
-{\\Ddots}
+{\\ddots}
 endsnippet
 
-snippet sqrt "\sqrt{}" i
+snippet sq "\sqrt{}" i
 \\sqrt{$1}
 endsnippet
 
@@ -277,7 +289,7 @@ snippet E "empty set" i
 \\emptyset
 endsnippet
 
-snippet I "integer set" i
+snippet Z "integer set" i
 \\mathbb{Z}
 endsnippet
 
@@ -307,15 +319,15 @@ snippet lr "left right" i
 \\left$1$2\\right$1
 endsnippet
 
-snippet lr( "left( right)" i
+snippet lrb "left( right)" i
 \\left($1\\right)
 endsnippet
 
-snippet lr[ "left[ right]" i
+snippet lrs "left[ right]" i
 \\left[$1\\right]
 endsnippet
 
-snippet lr{ "left\{ right\}" i
+snippet lrc "left\{ right\}" i
 \\left\\{$1\\right\\}
 endsnippet
 
