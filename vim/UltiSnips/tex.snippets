@@ -7,12 +7,13 @@ snippet temp "template" b
 \\usepackage[sups,osf]{XCharter}
 \\usepackage[charter,vvarbb]{newtxmath}
 \\usepackage{inconsolata}
-\\usepackage{cabin}
-\\usepackage[a4paper,textwidth=26pc]{geometry}
 \\usepackage{microtype}
+\\usepackage[a4paper,textwidth=26pc]{geometry}
+\\usepackage[tiny]{titlesec}
 \\usepackage{csquotes}
-\\usepackage[colorlinks=true]{hyperref}
+\\usepackage[hidelinks]{hyperref}
 \\usepackage{cleveref}
+\\usepackage{lipsum}
 
 \\theoremstyle{plain}
 \\newtheorem{thm}{Theorem}[section]
@@ -25,12 +26,21 @@ snippet temp "template" b
 \\theoremstyle{remark}
 \\newtheorem*{rem}{Remark}
 
+\\newcommand*{\abbrv}[1]{\textls[50]{\textsc{#1}}}
+
+\\titlespacing*{\section}{0pt}{1\baselineskip}{1\baselineskip}
+\\titleformat{\section}{\scshape}{\upshape\thesection}{1em}{}
+\\titlespacing*{\subsection}{0pt}{1\baselineskip}{1\baselineskip}
+\\titleformat{\subsection}{\itshape}{\upshape\thesubsection}{1em}{}
+
 \\title{${1:Title}}
 \\author{${2:Bruce McPhail}}
 \\date{$3}
 
 \\begin{document}
 
+\\flushbottom
+\\frenchspacing
 \\maketitle
 
 $0
