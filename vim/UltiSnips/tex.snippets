@@ -7,13 +7,12 @@ snippet temp "template" b
 \\usepackage[sups,osf]{XCharter}
 \\usepackage[charter,vvarbb]{newtxmath}
 \\usepackage{inconsolata}
-\\usepackage{microtype}
+\\usepackage[tracking,letterspace=50]{microtype}
 \\usepackage[a4paper,heightrounded,textwidth=26pc]{geometry}
 \\usepackage[tiny]{titlesec}
 \\usepackage{csquotes}
 \\usepackage[hidelinks]{hyperref}
 \\usepackage{cleveref}
-\\usepackage{lipsum}
 
 \\theoremstyle{plain}
 \\newtheorem{thm}{Theorem}[section]
@@ -26,8 +25,7 @@ snippet temp "template" b
 \\theoremstyle{remark}
 \\newtheorem*{rem}{Remark}
 
-\\newcommand*{\abbrv}[1]{\textls[50]{\textsc{#1}}}
-
+\\setlength{\\parskip}{0pt}
 \\titlespacing*{\section}{0pt}{1\baselineskip}{1\baselineskip}
 \\titleformat{\section}{\scshape}{\upshape\thesection}{1em}{}
 \\titlespacing*{\subsection}{0pt}{1\baselineskip}{1\baselineskip}
