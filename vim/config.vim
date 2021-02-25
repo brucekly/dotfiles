@@ -11,9 +11,9 @@ set hlsearch
 set ignorecase
 set incsearch
 set lazyredraw
-set list
 set mouse=a
 set noswapfile
+set number
 set path& | let &path .= "**"
 set ruler
 set shiftround
@@ -24,10 +24,6 @@ set wildcharm=<C-z>
 set wildignorecase
 set wildmenu
 set wildmode=full
-
-" Status line
-set laststatus=2
-set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\ "
 
 " Window movement
 tnoremap <A-h> <C-\><C-N><C-w>h
@@ -68,7 +64,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Aesthetic
-Plug 'cocopon/iceberg.vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'itchyny/lightline.vim'
 
 " Editing
 Plug 'tpope/vim-commentary'
@@ -96,7 +93,18 @@ Plug 'lervag/vimtex'
 call plug#end()
 
 set termguicolors
-color iceberg
+color solarized8
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 " Key bindings
 let mapleader="\<Space>"
