@@ -11,6 +11,8 @@ set hlsearch
 set ignorecase
 set incsearch
 set lazyredraw
+set list
+set listchars=tab:\|\ ,trail:·,nbsp:+
 set mouse=a
 set noswapfile
 set number
@@ -65,7 +67,6 @@ call plug#begin('~/.vim/plugged')
 
 " Aesthetic
 Plug 'lifepillar/vim-solarized8'
-Plug 'itchyny/lightline.vim'
 
 " Editing
 Plug 'tpope/vim-commentary'
@@ -92,19 +93,12 @@ Plug 'lervag/vimtex'
 
 call plug#end()
 
+" Status line
+set laststatus=2
+set statusline=%<\ %f\ %m%r%y%w%{FugitiveStatusline()}%=\ L:\ \%l\/\%L\ C:\ \%c\ "
+
 set termguicolors
 color solarized8
-
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
 
 " Key bindings
 let mapleader="\<Space>"
