@@ -76,7 +76,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'justinmk/vim-sneak'
 
 " Code
 Plug 'sheerun/vim-polyglot'
