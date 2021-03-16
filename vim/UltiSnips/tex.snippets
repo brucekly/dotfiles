@@ -1,11 +1,10 @@
 snippet temp "template" b
-\\documentclass{article}
+\\documentclass[11pt]{article}
 
 \\usepackage{mathtools,amssymb,amsthm}
 \\usepackage[T1]{fontenc}
 \\usepackage[british]{babel}
-\\usepackage[sups,osf]{XCharter}
-\\usepackage[charter,vvarbb]{newtxmath}
+\\usepackage[mathlf]{MinionPro}
 \\usepackage{inconsolata}
 \\usepackage[tracking,letterspace=50]{microtype}
 \\usepackage[a4paper,heightrounded,textwidth=26pc]{geometry}
@@ -25,11 +24,12 @@ snippet temp "template" b
 \\theoremstyle{remark}
 \\newtheorem*{rem}{Remark}
 
-\\setlength{\\parskip}{0pt}
 \\titlespacing*{\section}{0pt}{1\baselineskip}{1\baselineskip}
 \\titleformat{\section}{\scshape}{\upshape\thesection}{1em}{}
 \\titlespacing*{\subsection}{0pt}{1\baselineskip}{1\baselineskip}
 \\titleformat{\subsection}{\itshape}{\upshape\thesubsection}{1em}{}
+
+\\DisableLigatures[T]{encoding=*,family=*}
 
 \\title{${1:Title}}
 \\author{${2:Bruce McPhail}}
