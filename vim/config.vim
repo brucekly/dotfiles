@@ -2,6 +2,7 @@
 let &softtabstop = &tabstop
 set autoindent
 set backspace=indent,eol,start
+set breakindent
 set complete+=d
 set foldlevelstart=999
 set foldmethod=indent
